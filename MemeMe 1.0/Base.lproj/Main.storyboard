@@ -9,6 +9,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Impacted.ttf">
+            <string>Impact</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -18,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOU-PQ-kDI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOU-PQ-kDI">
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" restorationIdentifier="bottomToolbar" translatesAutoresizingMaskIntoConstraints="NO" id="r0P-1h-CfU">
@@ -40,35 +45,31 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="X5s-eO-Qzh"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jL4-pL-YGl">
-                                <rect key="frame" x="40" y="100" width="334" height="60"/>
+                            <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="jL4-pL-YGl">
+                                <rect key="frame" x="10" y="100" width="394" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="itH-vI-yuu"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="yes"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lCf-Te-oO6">
-                                <rect key="frame" x="203" y="647" width="8" height="17"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="lCf-Te-oO6">
+                                <rect key="frame" x="10" y="647" width="394" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITl-Mn-7Of">
-                                <rect key="frame" x="186" y="186" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gOU-PQ-kDI" secondAttribute="trailing" id="04p-8e-85R"/>
-                            <constraint firstItem="jL4-pL-YGl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="CWi-tB-MF0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jL4-pL-YGl" secondAttribute="trailing" constant="10" id="8UY-lD-0d4"/>
+                            <constraint firstItem="jL4-pL-YGl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="CWi-tB-MF0"/>
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="centerX" secondItem="lCf-Te-oO6" secondAttribute="centerX" id="FTH-xl-bXS"/>
+                            <constraint firstItem="lCf-Te-oO6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="Ggo-s7-pFl"/>
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="bottom" secondItem="r0P-1h-CfU" secondAttribute="bottom" id="KhQ-q8-KdI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lCf-Te-oO6" secondAttribute="trailing" constant="10" id="N7c-93-67D"/>
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OjT-uA-2Bu"/>
                             <constraint firstItem="r0P-1h-CfU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UX7-Ts-iQW"/>
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X9s-JZ-inC"/>

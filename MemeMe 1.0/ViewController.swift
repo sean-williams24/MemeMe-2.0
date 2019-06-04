@@ -42,6 +42,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // - Check to see if the device has a camera available
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
        
         
     }
@@ -199,10 +203,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedString.Key.strokeWidth: 0.5
+            NSAttributedString.Key.strokeWidth: -2,
+           
+
         ]
         topTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.defaultTextAttributes = memeTextAttributes

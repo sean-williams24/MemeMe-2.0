@@ -2,6 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>impact.ttf</string>
+		<string>Impacted.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -25,7 +30,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>MeMe would like to access your camera.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Meme would like to access your photo library to store image.</string>
+	<string>Please allow access to save your meme.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>MeMe would like to access your photos.</string>
 	<key>UILaunchStoryboardName</key>
