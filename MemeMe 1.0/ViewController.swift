@@ -42,12 +42,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // - Check to see if the device has a camera available
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
-       
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
