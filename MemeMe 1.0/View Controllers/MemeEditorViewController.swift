@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import Foundation
 
-class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
-
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -17,7 +19,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var toolbar: UIToolbar!
-
+    @IBOutlet weak var fontButton: UIBarButtonItem!
+    @IBOutlet weak var picker: UIPickerView!
+    
+    
+    var pickerData: [String] = [String]()
     
     struct Meme {
         var topText: String
@@ -42,7 +48,34 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         // - Check to see if the device has a camera available
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         navigationController?.hidesBarsOnTap = true
+        
+        // - Set VC as delegate for pickerview and declare font data array
+        self.picker.delegate = self
+        self.picker.dataSource = self
+        
+        pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "HelveticaNeue", "HelveticaNeue-Thin"]
+ 
     }
+    
+    //MARK: - Pickerview setup
+    // - Set number of columns and rows and connect font data
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print(row)
+    }
+    
     
     
     // Subscribe and unsubscribe from keyboard notifications
@@ -73,8 +106,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return true
     }
     
-    
-    //MARK: - Image selection functions
+        //MARK: - Image selection functions
     
     // - Grab image from storage and assign to imageview - add .originalimage to grab the original image selected
 
@@ -85,6 +117,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             imageView.image = image
         }
         dismiss(animated: true, completion: nil)
+        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -101,6 +134,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
         shareButton.isEnabled = true
+        
     }
 
     
@@ -152,5 +186,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.textAlignment = .center
         imageView.image = nil
     }
+    
+//    @IBAction func fontSelection(_ sender: UIPickerView) {
+//            //Image Picker view
+////        let picker = UIPickerView
+////        present(picker)
+//
+//    }
+//
 }
 

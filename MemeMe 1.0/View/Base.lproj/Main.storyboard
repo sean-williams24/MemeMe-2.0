@@ -60,6 +60,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-N7-TdD">
+                                <rect key="frame" x="0.0" y="64" width="414" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -83,25 +87,35 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="ltH-hD-SG2">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="I9h-Mo-Wfn">
                             <connections>
                                 <action selector="shareMeme:" destination="BYZ-38-t0r" id="b14-u5-M99"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Reset" id="kef-X4-Hkn">
-                            <connections>
-                                <action selector="cancelButton:" destination="BYZ-38-t0r" id="n3M-s4-pZA"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Reset" id="kef-X4-Hkn">
+                                <connections>
+                                    <action selector="cancelButton:" destination="BYZ-38-t0r" id="n3M-s4-pZA"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Font" id="D6H-S4-YLu">
+                                <connections>
+                                    <action selector="fontSelection:" destination="BYZ-38-t0r" id="Qlk-Ui-vT5"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomTextField" destination="lCf-Te-oO6" id="ujf-WF-SDt"/>
+                        <outlet property="bottomTextField" destination="lCf-Te-oO6" id="UPM-i3-Wlx"/>
                         <outlet property="cameraButton" destination="kX3-0C-2Zm" id="x7U-bm-2CC"/>
-                        <outlet property="cancelButton" destination="kef-X4-Hkn" id="vzr-Fv-qQe"/>
-                        <outlet property="imageView" destination="gOU-PQ-kDI" id="EIX-Te-lzh"/>
+                        <outlet property="cancelButton" destination="kef-X4-Hkn" id="gmU-1f-3hP"/>
+                        <outlet property="fontButton" destination="D6H-S4-YLu" id="xXo-9o-0nu"/>
+                        <outlet property="imageView" destination="gOU-PQ-kDI" id="VNI-yP-Kwl"/>
+                        <outlet property="picker" destination="Nih-N7-TdD" id="QHW-Bw-erC"/>
                         <outlet property="shareButton" destination="I9h-Mo-Wfn" id="Dh9-gP-5B7"/>
                         <outlet property="toolbar" destination="r0P-1h-CfU" id="fwD-u9-PD6"/>
-                        <outlet property="topTextField" destination="jL4-pL-YGl" id="7I0-ZG-DeW"/>
+                        <outlet property="topTextField" destination="jL4-pL-YGl" id="lRe-Th-x32"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
