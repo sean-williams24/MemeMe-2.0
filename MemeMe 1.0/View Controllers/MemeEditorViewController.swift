@@ -24,6 +24,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     
     var pickerData: [String] = [String]()
+    var fontData: [String] = [String]()
+    var font: String = "HelveticaNeue-CondensedBlack"
     
     struct Meme {
         var topText: String
@@ -34,6 +36,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        picker.isHidden = true
         
         if imageView.image == nil {
             shareButton.isEnabled = false
@@ -53,8 +57,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.picker.delegate = self
         self.picker.dataSource = self
         
-        pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "HelveticaNeue", "HelveticaNeue-Thin"]
- 
+        pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "MyanmarSangamMN-Bold"]
+        fontData = ["Helvetica Neue 1", "Helvetica Neue 2", "Myanmar Sangam"]
+        
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
+
     }
     
     //MARK: - Pickerview setup
@@ -69,11 +79,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
+        return fontData[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print(row)
+        font = pickerData[row]
+        formatFont()
+
     }
     
     
@@ -187,12 +199,25 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.image = nil
     }
     
-//    @IBAction func fontSelection(_ sender: UIPickerView) {
-//            //Image Picker view
-////        let picker = UIPickerView
-////        present(picker)
-//
-//    }
-//
+    func formatFont() {
+        let memeTextAttributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor.white,
+            NSAttributedString.Key.strokeColor: UIColor.black,
+            NSAttributedString.Key.font: UIFont(name: font, size: 40)!,
+            NSAttributedString.Key.strokeWidth: -2,
+        ]
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.textAlignment = .center
+        bottomTextField.textAlignment = .center
+        picker.isHidden = true
+    }
+    
+    @IBAction func fontSelection(_ sender: UIPickerView) {
+        picker.isHidden = false
+        picker.backgroundColor = UIColor.white
+
+    }
+
 }
 

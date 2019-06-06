@@ -46,7 +46,7 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="jL4-pL-YGl">
-                                <rect key="frame" x="10" y="64" width="394" height="60"/>
+                                <rect key="frame" x="10" y="114" width="394" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="itH-vI-yuu"/>
                                 </constraints>
@@ -61,7 +61,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-N7-TdD">
-                                <rect key="frame" x="0.0" y="64" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="415" width="414" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                         </subviews>
@@ -78,7 +78,7 @@
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X9s-JZ-inC"/>
                             <constraint firstItem="jL4-pL-YGl" firstAttribute="centerX" secondItem="lCf-Te-oO6" secondAttribute="centerX" id="aEf-gg-ZFx"/>
                             <constraint firstItem="r0P-1h-CfU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ayq-SP-URa"/>
-                            <constraint firstItem="jL4-pL-YGl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="fjM-1b-NTz"/>
+                            <constraint firstItem="jL4-pL-YGl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="fjM-1b-NTz"/>
                             <constraint firstItem="r0P-1h-CfU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gPb-bL-E5M"/>
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iIY-eg-AQW"/>
                             <constraint firstAttribute="bottomMargin" secondItem="lCf-Te-oO6" secondAttribute="bottom" constant="50" id="lkR-BV-GeW"/>
