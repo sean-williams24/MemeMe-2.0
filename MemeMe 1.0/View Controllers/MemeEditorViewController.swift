@@ -58,8 +58,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.picker.delegate = self
         self.picker.dataSource = self
         
-        pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "MyanmarSangamMN-Bold"]
-        fontData = ["Helvetica Neue 1", "Helvetica Neue 2", "Myanmar Sangam"]
+        pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "MyanmarSangamMN-Bold", "Noteworthy-Bold", "MarkerFelt-Wide", "SnellRoundhand", "Chalkduster"]
+        fontData = ["Helvetica Neue 1", "Helvetica Neue 2", "Myanmar Sangam", "Noteworthy", "Markerfelt", "Snell Roundhand", "Chalk Duster"]
         
         for family in UIFont.familyNames.sorted() {
             let names = UIFont.fontNames(forFamilyName: family)
