@@ -25,6 +25,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     var pickerData: [String] = [String]()
     var fontData: [String] = [String]()
+    var defaultFont: String = "HelveticaNeue-CondensedBlack"
     var font: String = "HelveticaNeue-CondensedBlack"
     
     struct Meme {
@@ -84,7 +85,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         font = pickerData[row]
-        formatFont()
+        formatFont(font: font)
+        picker.isHidden = true
 
     }
     
@@ -186,20 +188,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     func resetScreen() {
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
-        let memeTextAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.strokeColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedString.Key.strokeWidth: -2,
-        ]
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .center
-        bottomTextField.textAlignment = .center
+        formatFont(font: "HelveticaNeue-CondensedBlack")
         imageView.image = nil
     }
     
-    func formatFont() {
+    func formatFont(font: String) {
+
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.strokeColor: UIColor.black,
@@ -210,7 +204,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = .center
         bottomTextField.textAlignment = .center
-        picker.isHidden = true
+
+    }
+    
+    func formatFont() {
+        
     }
     
     @IBAction func fontSelection(_ sender: UIPickerView) {
