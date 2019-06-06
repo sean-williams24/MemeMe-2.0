@@ -21,11 +21,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var fontButton: UIBarButtonItem!
     @IBOutlet weak var picker: UIPickerView!
-    
+
     
     var pickerData: [String] = [String]()
     var fontData: [String] = [String]()
-    var defaultFont: String = "HelveticaNeue-CondensedBlack"
     var font: String = "HelveticaNeue-CondensedBlack"
     
     struct Meme {
@@ -54,19 +53,14 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         navigationController?.hidesBarsOnTap = true
         
-        // - Set VC as delegate for pickerview and declare font data array
+        // - Set VC as delegate for pickerview and declare font data arrays
         self.picker.delegate = self
         self.picker.dataSource = self
         
         pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "MyanmarSangamMN-Bold", "Noteworthy-Bold", "MarkerFelt-Wide", "SnellRoundhand", "Chalkduster"]
         fontData = ["Helvetica Neue 1", "Helvetica Neue 2", "Myanmar Sangam", "Noteworthy", "Markerfelt", "Snell Roundhand", "Chalk Duster"]
-        
-        for family in UIFont.familyNames.sorted() {
-            let names = UIFont.fontNames(forFamilyName: family)
-            print("Family: \(family) Font names: \(names)")
-        }
-
     }
+    
     
     //MARK: - Pickerview setup
     // - Set number of columns and rows and connect font data
@@ -87,7 +81,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         font = pickerData[row]
         formatFont(font: font)
         picker.isHidden = true
-
     }
     
     
@@ -120,7 +113,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         return true
     }
     
-        //MARK: - Image selection functions
+    
+    //MARK: - Image selection functions
     
     // - Grab image from storage and assign to imageview - add .originalimage to grab the original image selected
 
@@ -131,7 +125,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
             imageView.image = image
         }
         dismiss(animated: true, completion: nil)
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -148,7 +141,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
         shareButton.isEnabled = true
-        
     }
 
     
@@ -192,8 +184,10 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imageView.image = nil
     }
     
+    
+    //MARK: - Format font
+    
     func formatFont(font: String) {
-
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.foregroundColor: UIColor.white,
             NSAttributedString.Key.strokeColor: UIColor.black,
@@ -204,17 +198,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         bottomTextField.defaultTextAttributes = memeTextAttributes
         topTextField.textAlignment = .center
         bottomTextField.textAlignment = .center
-
-    }
-    
-    func formatFont() {
-        
     }
     
     @IBAction func fontSelection(_ sender: UIPickerView) {
         picker.isHidden = false
         picker.backgroundColor = UIColor.white
-
     }
 
 }
