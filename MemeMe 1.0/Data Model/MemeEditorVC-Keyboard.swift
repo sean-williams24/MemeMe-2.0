@@ -20,12 +20,14 @@ extension MemeEditorViewController {
         view.frame.origin.y = -getKeyboardHeight(notifictation)
     }
 }
+    
 // - Move screen down
 @objc func keyboardWillHide(_ notification: Notification) {
     if view.frame.origin.y != 0 {
         view.frame.origin.y += getKeyboardHeight(notification)
     }
 }
+    
 // - Calculate keyboard height
 func getKeyboardHeight(_ notification: Notification) -> CGFloat {
     let userInfo = notification.userInfo

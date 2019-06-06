@@ -46,16 +46,16 @@
                                 </items>
                             </toolbar>
                             <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" allowsEditingTextAttributes="YES" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="jL4-pL-YGl">
-                                <rect key="frame" x="10" y="114" width="394" height="60"/>
+                                <rect key="frame" x="10" y="74" width="394" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="itH-vI-yuu"/>
+                                    <constraint firstAttribute="height" constant="80" id="itH-vI-yuu"/>
                                 </constraints>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <fontDescription key="fontDescription" name="Impact" family="Impact" pointSize="40"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="yes"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="lCf-Te-oO6">
-                                <rect key="frame" x="10" y="669" width="394" height="17"/>
+                                <rect key="frame" x="10" y="629" width="394" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
@@ -78,10 +78,10 @@
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="X9s-JZ-inC"/>
                             <constraint firstItem="jL4-pL-YGl" firstAttribute="centerX" secondItem="lCf-Te-oO6" secondAttribute="centerX" id="aEf-gg-ZFx"/>
                             <constraint firstItem="r0P-1h-CfU" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ayq-SP-URa"/>
-                            <constraint firstItem="jL4-pL-YGl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="fjM-1b-NTz"/>
+                            <constraint firstItem="jL4-pL-YGl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="fjM-1b-NTz"/>
                             <constraint firstItem="r0P-1h-CfU" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gPb-bL-E5M"/>
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="iIY-eg-AQW"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="lCf-Te-oO6" secondAttribute="bottom" constant="50" id="lkR-BV-GeW"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="lCf-Te-oO6" secondAttribute="bottom" constant="90" id="lkR-BV-GeW"/>
                             <constraint firstItem="gOU-PQ-kDI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="m74-jv-MYz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
