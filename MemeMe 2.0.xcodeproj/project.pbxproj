@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE168BB322A009960029890E /* MemeMe 1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MemeMe 1.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE168BB322A009960029890E /* MemeMe 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MemeMe 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE168BB622A009960029890E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE168BB822A009960029890E /* MemeEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorViewController.swift; sourceTree = "<group>"; };
 		CE168BBB22A009960029890E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,7 +42,7 @@
 		CE168BAA22A009960029890E = {
 			isa = PBXGroup;
 			children = (
-				CE168BB522A009960029890E /* MemeMe 1.0 */,
+				CE168BB522A009960029890E /* MemeMe 2.0 */,
 				CE168BB422A009960029890E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,12 +50,12 @@
 		CE168BB422A009960029890E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE168BB322A009960029890E /* MemeMe 1.0.app */,
+				CE168BB322A009960029890E /* MemeMe 2.0.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE168BB522A009960029890E /* MemeMe 1.0 */ = {
+		CE168BB522A009960029890E /* MemeMe 2.0 */ = {
 			isa = PBXGroup;
 			children = (
 				CE168BB622A009960029890E /* AppDelegate.swift */,
@@ -65,7 +65,7 @@
 				CE168BBD22A009970029890E /* Assets.xcassets */,
 				CE168BC222A009970029890E /* Info.plist */,
 			);
-			path = "MemeMe 1.0";
+			path = "MemeMe 2.0";
 			sourceTree = "<group>";
 		};
 		CE6B2F9A22A6A7C50090D52C /* Data Model */ = {
@@ -97,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE168BB222A009960029890E /* MemeMe 1.0 */ = {
+		CE168BB222A009960029890E /* MemeMe 2.0 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE168BC522A009970029890E /* Build configuration list for PBXNativeTarget "MemeMe 1.0" */;
+			buildConfigurationList = CE168BC522A009970029890E /* Build configuration list for PBXNativeTarget "MemeMe 2.0" */;
 			buildPhases = (
 				CE168BAF22A009960029890E /* Sources */,
 				CE168BB022A009960029890E /* Frameworks */,
@@ -109,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = "MemeMe 1.0";
+			name = "MemeMe 2.0";
 			productName = "Image Picker Practice";
-			productReference = CE168BB322A009960029890E /* MemeMe 1.0.app */;
+			productReference = CE168BB322A009960029890E /* MemeMe 2.0.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -142,7 +142,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE168BB222A009960029890E /* MemeMe 1.0 */,
+				CE168BB222A009960029890E /* MemeMe 2.0 */,
 			);
 		};
 /* End PBXProject section */
@@ -316,13 +316,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DN4729AK8V;
-				INFOPLIST_FILE = "MemeMe 1.0/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MemeMe 2.0/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.seanwilliams.MemeMe-1.0";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seanwilliams.MemeMe-2.0";
+				PRODUCT_NAME = "MemeMe 2.0";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -334,13 +334,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DN4729AK8V;
-				INFOPLIST_FILE = "MemeMe 1.0/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/MemeMe 2.0/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.seanwilliams.MemeMe-1.0";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.seanwilliams.MemeMe-2.0";
+				PRODUCT_NAME = "MemeMe 2.0";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -358,7 +358,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE168BC522A009970029890E /* Build configuration list for PBXNativeTarget "MemeMe 1.0" */ = {
+		CE168BC522A009970029890E /* Build configuration list for PBXNativeTarget "MemeMe 2.0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE168BC622A009970029890E /* Debug */,
