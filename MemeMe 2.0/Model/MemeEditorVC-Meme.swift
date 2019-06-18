@@ -1,6 +1,6 @@
 //
 //  Meme.swift
-//  MemeMe 1.0
+//  MemeMe 2.0
 //
 //  Created by Sean Williams on 04/06/2019.
 //  Copyright © 2019 Sean Williams. All rights reserved.
@@ -9,14 +9,9 @@
 import Foundation
 import UIKit
 
+
 extension MemeEditorViewController {
 
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        let originalImage: UIImage
-        let memedImage: UIImage
-    }
     
 //MARK: - Genrate meme from view
 
@@ -39,7 +34,12 @@ func generateMemedImage() -> UIImage {
 
 func saveMeme() {
     //Create the meme
-    _ = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
+    let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
+    
+    //Add meme to Memes array in the app delegate
+    let object = UIApplication.shared.delegate
+    let appDelegate = object as! AppDelegate
+    appDelegate.memes.append(meme)
 }
 
 }

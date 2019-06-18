@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  MemeMe 1.0
+//  MemeMe 2.0
 //
 //  Created by Sean Williams on 30/05/2019.
 //  Copyright © 2019 Sean Williams. All rights reserved.
@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
     
@@ -21,7 +22,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var fontButton: UIBarButtonItem!
     @IBOutlet weak var picker: UIPickerView!
-
+    
     
     let pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "MyanmarSangamMN-Bold", "Noteworthy-Bold", "MarkerFelt-Wide", "SnellRoundhand", "Chalkduster"]
     let fontData = ["Helvetica Neue 1", "Helvetica Neue 2", "Myanmar Sangam", "Noteworthy", "Markerfelt", "Snell Roundhand", "Chalk Duster"]
