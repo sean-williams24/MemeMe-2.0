@@ -23,42 +23,29 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var picker: UIPickerView!
 
     
-    var pickerData: [String] = [String]()
-    var fontData: [String] = [String]()
-    var font: String = "HelveticaNeue-CondensedBlack"
+    let pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "MyanmarSangamMN-Bold", "Noteworthy-Bold", "MarkerFelt-Wide", "SnellRoundhand", "Chalkduster"]
+    let fontData = ["Helvetica Neue 1", "Helvetica Neue 2", "Myanmar Sangam", "Noteworthy", "Markerfelt", "Snell Roundhand", "Chalk Duster"]
     
-    struct Meme {
-        var topText: String
-        var bottomText: String
-        let originalImage: UIImage
-        let memedImage: UIImage
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         picker.isHidden = true
         
-        if imageView.image == nil {
-            shareButton.isEnabled = false
-            } else {
-            shareButton.isEnabled = true
-        }
-        topTextField.delegate = self
-        bottomTextField.delegate = self
+        // Share button only enabled if image is present (ternary operator)
+        shareButton.isEnabled = imageView.image == nil ? false : true
         
-        resetScreen()
+        configureTextField(topTextField, text: "TOP", font: pickerData[0])
+        configureTextField(bottomTextField, text: "BOTTOM", font: pickerData[0])
+        
 
         // - Check to see if the device has a camera available
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-        navigationController?.hidesBarsOnTap = true
         
         // - Set VC as delegate for pickerview and declare font data arrays
         self.picker.delegate = self
         self.picker.dataSource = self
         
-        pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "MyanmarSangamMN-Bold", "Noteworthy-Bold", "MarkerFelt-Wide", "SnellRoundhand", "Chalkduster"]
-        fontData = ["Helvetica Neue 1", "Helvetica Neue 2", "Myanmar Sangam", "Noteworthy", "Markerfelt", "Snell Roundhand", "Chalk Duster"]
     }
     
     
@@ -78,8 +65,8 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        font = pickerData[row]
-        formatFont(font: font)
+        configureTextField(topTextField, text: "TOP", font: pickerData[row])
+        configureTextField(bottomTextField, text: "BOTTOM", font: pickerData[row])
         picker.isHidden = true
     }
     
@@ -109,8 +96,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+        return textField.resignFirstResponder()
     }
     
     
@@ -135,25 +121,23 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     //MARK: - Pick image from photo album
     
     @IBAction func pickImageFromAlbum(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
-        shareButton.isEnabled = true
+        pickAnImage(.photoLibrary)
+//        imagePicker.allowsEditing = true
     }
 
-    
     //MARK: - Open camera
     
     @IBAction func newImageFromCamera(_ sender: Any) {
-        let cameraPicker = UIImagePickerController()
-        cameraPicker.delegate = self
-        cameraPicker.sourceType = .camera
-        present(cameraPicker, animated: true, completion: nil)
-        shareButton.isEnabled = true
+        pickAnImage(.camera)
     }
     
+    func pickAnImage(_ source: UIImagePickerController.SourceType) {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.sourceType = source
+        present(pickerController, animated: true, completion: nil)
+        shareButton.isEnabled = true
+    }
     
     //MARK: - Share meme function
     
@@ -174,30 +158,22 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     //MARK: - Reset screen
     
     @IBAction func cancelButton(_ sender: Any) {
-        resetScreen()
-    }
-    
-    func resetScreen() {
-        topTextField.text = "TOP"
-        bottomTextField.text = "BOTTOM"
-        formatFont(font: "HelveticaNeue-CondensedBlack")
+        configureTextField(topTextField, text: "TOP", font: pickerData[0])
+        configureTextField(bottomTextField, text: "BOTTOM", font: pickerData[0])
         imageView.image = nil
     }
+
     
-    
-    //MARK: - Format font
-    
-    func formatFont(font: String) {
-        let memeTextAttributes: [NSAttributedString.Key: Any] = [
-            NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.strokeColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont(name: font, size: 40)!,
-            NSAttributedString.Key.strokeWidth: -2,
-        ]
-        topTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.textAlignment = .center
-        bottomTextField.textAlignment = .center
+    func configureTextField(_ textField: UITextField, text: String, font: String) {
+        textField.text = text
+        textField.delegate = self
+        textField.defaultTextAttributes = [
+            .font: UIFont(name: font, size: 40)!,
+            .foregroundColor: UIColor.white,
+            .strokeColor: UIColor.black,
+            .strokeWidth: -4.0,
+            ]
+        textField.textAlignment = .center
     }
     
     @IBAction func fontSelection(_ sender: UIPickerView) {

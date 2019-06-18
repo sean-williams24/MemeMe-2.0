@@ -24,7 +24,7 @@ extension MemeEditorViewController {
 // - Move screen down
 @objc func keyboardWillHide(_ notification: Notification) {
     if view.frame.origin.y != 0 {
-        view.frame.origin.y += getKeyboardHeight(notification)
+        view.frame.origin.y = 0
     }
 }
     

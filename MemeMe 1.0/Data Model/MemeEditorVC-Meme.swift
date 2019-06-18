@@ -11,6 +11,13 @@ import UIKit
 
 extension MemeEditorViewController {
 
+    struct Meme {
+        var topText: String
+        var bottomText: String
+        let originalImage: UIImage
+        let memedImage: UIImage
+    }
+    
 //MARK: - Genrate meme from view
 
 func generateMemedImage() -> UIImage {
