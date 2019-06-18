@@ -129,7 +129,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CE168BAE22A009960029890E /* Build configuration list for PBXProject "MemeMe 1.0" */;
+			buildConfigurationList = CE168BAE22A009960029890E /* Build configuration list for PBXProject "MemeMe 2.0" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -349,7 +349,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE168BAE22A009960029890E /* Build configuration list for PBXProject "MemeMe 1.0" */ = {
+		CE168BAE22A009960029890E /* Build configuration list for PBXProject "MemeMe 2.0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE168BC322A009970029890E /* Debug */,
