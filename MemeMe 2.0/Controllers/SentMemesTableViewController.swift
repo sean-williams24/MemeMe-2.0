@@ -18,9 +18,12 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        tableView.rowHeight = 150
         tabBarController?.tabBar.isHidden = false
     }
     
+    override func viewDidLoad() {
+    }
     
     //MARK: - Table view data source
     
@@ -29,25 +32,21 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "memeTableViewCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "memeTableViewCell") as! MemeTableViewCell
         let meme = appDelegate.memes[(indexPath as NSIndexPath).row]
         
         cell.imageView?.image = meme.memedImage
-        cell.textLabel?.text = meme.topText + meme.bottomText
+        cell.topLabel.text = meme.topText
+        cell.bottomLabel.text = meme.bottomText
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let detailController = storyboard!.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
-//        detailController.meme = appDelegate.memes[(indexPath as NSIndexPath).row]
-//        navigationController!.pushViewController(detailController, animated: true)
-        
         let detailController = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
         detailController.meme = appDelegate.memes[indexPath.row]
         self.navigationController?.pushViewController(detailController, animated: true)
-        
     }
-    
 
 
 }
