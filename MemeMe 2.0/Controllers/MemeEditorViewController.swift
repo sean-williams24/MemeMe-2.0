@@ -22,6 +22,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var fontButton: UIBarButtonItem!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var resetButton: UIBarButtonItem!
     
     
     let pickerData = ["HelveticaNeue-CondensedBlack", "HelveticaNeue-Bold", "MyanmarSangamMN-Bold", "Noteworthy-Bold", "MarkerFelt-Wide", "SnellRoundhand", "Chalkduster"]
@@ -140,6 +141,32 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         shareButton.isEnabled = true
     }
     
+    func generateMemedImage() -> UIImage {
+        self.navigationController?.navigationBar.isHidden = true
+        self.toolbar.isHidden = true
+        
+        //Render view to image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        
+        self.navigationController?.navigationBar.isHidden = false
+        self.toolbar.isHidden = false
+        return memedImage
+    }
+    
+    //MARK: - Initialize meme object
+    
+    func saveMeme() {
+        //Create the meme
+        let meme = Meme(topText: topTextField.text!, bottomText: bottomTextField.text!, originalImage: imageView.image!, memedImage: generateMemedImage())
+        
+        //Add meme to Memes array in the app delegate
+        (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
+        //    print(appDelegate.memes)
+    }
+    
     //MARK: - Share meme function
     
     @IBAction func shareMeme(_ sender: Any) {
@@ -151,6 +178,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         controller.completionWithItemsHandler = { (activity, success, items, error) in
             if(success) {
                 self.saveMeme()
+                self.popToRootVC()
                 }
             }
         }
@@ -158,7 +186,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     //MARK: - Reset screen
     
-    @IBAction func cancelButton(_ sender: Any) {
+    @IBAction func resetButton(_ sender: Any) {
         configureTextField(topTextField, text: "TOP", font: pickerData[0])
         configureTextField(bottomTextField, text: "BOTTOM", font: pickerData[0])
         imageView.image = nil
@@ -182,5 +210,13 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         picker.backgroundColor = UIColor.white
     }
 
+    @IBAction func cancelMeme(_ sender: Any) {
+        popToRootVC()
+    }
+    
+    func popToRootVC() {
+        self.navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
