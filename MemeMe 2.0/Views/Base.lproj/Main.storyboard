@@ -23,7 +23,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOU-PQ-kDI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gOU-PQ-kDI">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="center" restorationIdentifier="bottomToolbar" translatesAutoresizingMaskIntoConstraints="NO" id="r0P-1h-CfU">
@@ -88,11 +88,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="ltH-hD-SG2">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="I9h-Mo-Wfn">
-                            <connections>
-                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="b14-u5-M99"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem systemItem="action" id="I9h-Mo-Wfn">
+                                <connections>
+                                    <action selector="shareMeme:" destination="BYZ-38-t0r" id="b14-u5-M99"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Font" id="D6H-S4-YLu">
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="fontSelection:" destination="BYZ-38-t0r" id="Qlk-Ui-vT5"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <rightBarButtonItems>
                             <barButtonItem systemItem="cancel" id="cfk-SY-TKD">
                                 <connections>
@@ -100,13 +108,9 @@
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Reset" id="kef-X4-Hkn">
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="resetButton:" destination="BYZ-38-t0r" id="8TP-Nt-LC1"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem title="Font" id="D6H-S4-YLu">
-                                <connections>
-                                    <action selector="fontSelection:" destination="BYZ-38-t0r" id="Qlk-Ui-vT5"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -149,10 +153,12 @@
         <scene sceneID="FLe-Lh-3qS">
             <objects>
                 <tabBarController id="WaB-E6-isK" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="Xxu-I2-01J">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Xxu-I2-01J">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="barTintColor" red="0.15543702411167515" green="0.15543702411167515" blue="0.15543702411167515" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="on3-PR-hqB" kind="relationship" relationship="viewControllers" id="nwc-u4-zfn"/>
@@ -184,10 +190,10 @@
         <scene sceneID="6w6-kd-hVS">
             <objects>
                 <collectionViewController title="Sent Memes Collection" id="qWT-ym-aix" customClass="SentMemesCollectionViewController" customModule="MemeMe_2_0" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="ovh-W8-Bp1">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" id="ovh-W8-Bp1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98261905359830637" green="0.93360669346974157" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MkL-gQ-3LM">
                             <size key="itemSize" width="136" height="136"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -195,14 +201,14 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeImageCell" id="OY2-BD-4cc" customClass="MemeCollectionViewCell" customModule="MemeMe_2_0" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" reuseIdentifier="MemeImageCell" id="OY2-BD-4cc" customClass="MemeCollectionViewCell" customModule="MemeMe_2_0" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="136" height="136"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SfB-a8-agG">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SfB-a8-agG">
                                             <rect key="frame" x="0.0" y="4" width="147" height="128"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
@@ -248,7 +254,7 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="memeTableViewCell" rowHeight="140" id="BN2-Zf-JYc" customClass="MemeTableViewCell" customModule="MemeMe_2_0" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="140"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BN2-Zf-JYc" id="zss-cJ-aE3">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BN2-Zf-JYc" id="zss-cJ-aE3">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>

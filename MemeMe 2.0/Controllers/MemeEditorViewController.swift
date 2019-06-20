@@ -124,7 +124,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     @IBAction func pickImageFromAlbum(_ sender: Any) {
         pickAnImage(.photoLibrary)
-//        imagePicker.allowsEditing = true
     }
 
     //MARK: - Open camera
@@ -164,7 +163,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         
         //Add meme to Memes array in the app delegate
         (UIApplication.shared.delegate as! AppDelegate).memes.append(meme)
-        //    print(appDelegate.memes)
     }
     
     //MARK: - Share meme function

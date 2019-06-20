@@ -27,17 +27,15 @@ class SentMemesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         
         let space: CGFloat = 3.0
-        let width = (view.frame.size.width - (2 * space)) / 3.0
-        let height = width * 1.5
+        let size = (view.frame.size.width - (2 * space)) / 3.0
         
         flowLayout.minimumLineSpacing = space
         flowLayout.minimumInteritemSpacing = space
-        flowLayout.itemSize = CGSize(width: width, height: height)
+        flowLayout.itemSize = CGSize(width: size, height: size)
     }
 
 
     // MARK: UICollectionViewDataSource
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return memes.count
@@ -58,5 +56,6 @@ class SentMemesCollectionViewController: UICollectionViewController {
         detailController.meme = memes[indexPath.row]
         self.navigationController?.pushViewController(detailController, animated: true)
     }
+    
 
 }

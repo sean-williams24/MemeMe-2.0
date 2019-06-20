@@ -23,8 +23,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         tabBarController?.tabBar.isHidden = false
     }
     
-    override func viewDidLoad() {
-    }
     
     //MARK: - Table view data source
     
@@ -40,8 +38,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         cell.imageView?.image = meme.memedImage
         cell.topLabel.text = meme.topText
         cell.bottomLabel.text = meme.bottomText
-
-        
         return cell
     }
     
@@ -51,5 +47,13 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
         self.navigationController?.pushViewController(detailController, animated: true)
     }
 
+    //Swpipe to delete function
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.appDelegate.memes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 
 }
