@@ -132,7 +132,7 @@
         <scene sceneID="638-od-A77">
             <objects>
                 <navigationController title="Table View" id="on3-PR-hqB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="table_30x30" id="52E-JR-UI6"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconTab0" id="52E-JR-UI6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R5O-uT-iCJ">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -167,7 +167,7 @@
         <scene sceneID="uz2-gE-nvu">
             <objects>
                 <navigationController id="xfb-vg-qog" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="collection_30x30" landscapeImage="collection_60x60" largeContentSizeImage="collection_90x90" id="0z5-93-nog"/>
+                    <tabBarItem key="tabBarItem" title="" image="iconTab1" landscapeImage="iconTab1" largeContentSizeImage="iconTab1" id="0z5-93-nog"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wlx-8v-PgD">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -225,6 +225,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="flowLayout" destination="MkL-gQ-3LM" id="K8D-KI-dYq"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iHN-3N-kDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -375,12 +378,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="collection_30x30" width="30" height="30"/>
-        <image name="collection_60x60" width="60" height="61"/>
-        <image name="collection_90x90" width="89" height="90"/>
-        <image name="table_30x30" width="30" height="30"/>
+        <image name="iconTab0" width="30" height="30"/>
+        <image name="iconTab1" width="30" height="30.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="exj-mt-nmL"/>
+        <segue reference="VvT-jQ-Q8G"/>
     </inferredMetricsTieBreakers>
 </document>

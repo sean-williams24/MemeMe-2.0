@@ -11,6 +11,8 @@ import UIKit
 
 class SentMemesCollectionViewController: UICollectionViewController {
 
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -22,6 +24,16 @@ class SentMemesCollectionViewController: UICollectionViewController {
         tabBarController?.tabBar.isHidden = false
     }
 
+    override func viewDidLoad() {
+        
+        let space: CGFloat = 3.0
+        let width = (view.frame.size.width - (2 * space)) / 3.0
+        let height = width * 1.5
+        
+        flowLayout.minimumLineSpacing = space
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.itemSize = CGSize(width: width, height: height)
+    }
 
 
     // MARK: UICollectionViewDataSource

@@ -18,7 +18,8 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-        tableView.rowHeight = 150
+        tableView.rowHeight = 155
+        tableView.separatorStyle = .none
         tabBarController?.tabBar.isHidden = false
     }
     
@@ -34,17 +35,19 @@ class SentMemesTableViewController: UIViewController, UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "memeTableViewCell") as! MemeTableViewCell
         let meme = appDelegate.memes[(indexPath as NSIndexPath).row]
-        
+        cell.updateConstraintsIfNeeded()
+        cell.setNeedsUpdateConstraints()
         cell.imageView?.image = meme.memedImage
         cell.topLabel.text = meme.topText
         cell.bottomLabel.text = meme.bottomText
+
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailController = self.storyboard?.instantiateViewController(withIdentifier: "MemeDetailViewController") as! MemeDetailViewController
-        detailController.meme = appDelegate.memes[indexPath.row]
+        detailController.meme = appDelegate.memes[(indexPath as NSIndexPath).row]
         self.navigationController?.pushViewController(detailController, animated: true)
     }
 
